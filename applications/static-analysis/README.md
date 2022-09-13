@@ -4,15 +4,15 @@
 # Runtime environment setup
 1. Download files to build container
     ```
-    $ wget https://raw.githubusercontent.com/jhu-information-security-institute/NwSec/master/applications/attack/attack-KaliX86-64.sh
-    $ chmod +x attack-KaliX86-64.sh
-    $ ./attack-KaliX86-64.sh
+    $ wget https://raw.githubusercontent.com/jhu-information-security-institute/SVA/master/applications/static-analysis/static-analysis-KaliX86-64.sh
+    $ chmod +x static-analysis-KaliX86-64.sh
+    $ ./static-analysis-KaliX86-64.sh
     ```
 1. Build, run, attach to container
     ```
-    $ docker build -t tattack .
-    $ docker run -d --name attack --hostname attack.netsec-docker.isi.jhu.edu --add-host attack:127.0.1.1 --dns 192.168.25.10 --dns-search netsec-docker.isi.jhu.edu --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw --network host tattack:latest
-    $ docker exec -it attack bash 
+    $ docker build -t tstatic-analysis .
+    $ docker run -d --name static-analysis --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw --network host tstatic-analysis:latest
+    $ docker exec -it static-analysis bash 
     ```
 1. Setup xauth with client container
     1. Generate a MIT_MAGIC_COOKIE-1 by running on VM: `$ mcookie`
