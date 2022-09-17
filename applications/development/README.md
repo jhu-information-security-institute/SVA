@@ -23,7 +23,7 @@
 1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz`
 1. `$ cd /usr/java`
 1. Extract java - `$ sudo tar -xvf /home/kali/jdk-18_linux-x64_bin.tar.gz`
-1. `$ mkdir /home/kali/ghidra && cd /home/kali/ghidra`
+1. `$ cd /home/kali/ghidra`
 1. Extract ghidra - `$ unzip /home/kali/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
