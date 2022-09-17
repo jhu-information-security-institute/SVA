@@ -42,8 +42,7 @@ CMD [ "/lib/systemd/systemd", "log-level=info", "unit=sysinit.target" ]
 
 #Must create a directory for any host VM users you intend to also use in the container
 RUN mkdir -p $HOME
-RUN mkdir /home/kali/ghidra
-RUN mkdir /usr/java
+RUN mkdir -p /usr/java
 COPY setup_user.sh /root/setup_user.sh
 
 #For convenience, replicate /etc/sudoers.d on VM to this container \n\ 
@@ -51,6 +50,8 @@ COPY setup_user.sh /root/setup_user.sh
 RUN rm -R /etc/sudoers.d
 #Then replicate from host
 VOLUME "/etc/sudoers.d"
+
+SHELL ["/bin/bash", "-ec"]
 
 # Finished!
 RUN echo $'\n\

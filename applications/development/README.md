@@ -16,16 +16,15 @@
     ```
 1. Create a user folder in the container by running: `# /root/setup_user.sh -u <USER> -H <HOME> `
 1. `# su kali`
-1. Download Eclipse CDT (C/C++ IDE) for 64-bit Linux in your VM using - `$ https://download.eclipse.org/technology/epp/downloads/release/2022-09/R/eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz`
+1. Download Eclipse CDT (C/C++ IDE) for 64-bit Linux in your VM using - `$ wget https://download.eclipse.org/technology/epp/downloads/release/2022-09/R/eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz`
 1. Download Oracle Java SE development kit (i.e., Oracle jdk) for 64-bit Linux (linux compressed archive version) into your VM using - `$ wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz`
 1. Download Ghidra into your VM using - `$ wget https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_10.1.5_build.zip`
 1. Use `docker cp` to copy eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz, jdk-18_linux-x64_bin.tar.gz, and Ghidra_10.1.5_build.zip from your VM into the development container's `/home/kali`
 1. `$ cd /home/kali`
 1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz`
-here
 1. `$ cd /usr/java`
 1. Extract java - `$ sudo tar -xvf /home/kali/jdk-18_linux-x64_bin.tar.gz`
-1. `$ cd /home/kali/ghidra`
+1. `$ mkdir /home/kali/ghidra && cd /home/kali/ghidra`
 1. Extract ghidra - `$ unzip /home/kali/Ghidra_10.1.5_build.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
