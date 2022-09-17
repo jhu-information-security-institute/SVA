@@ -37,6 +37,6 @@
 * Setup xauth with client container
     * Generate a MIT_MAGIC_COOKIE-1 by running on VM: `$ mcookie`
     * Get <COOKIEHASH> hash by running on VM: `$ xauth list`
-    * Share cookie with container’s X11 server by running (on container): `$ xauth add attack/unix$DISPLAY . <COOKIEHASH>`
+    * Share cookie with container’s X11 server by running (on container): `$ xauth add static-analysis/unix$DISPLAY . <COOKIEHASH>`
    
 # Useful websites

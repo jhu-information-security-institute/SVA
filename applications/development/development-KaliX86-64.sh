@@ -1,8 +1,8 @@
-# Script to clone specific files for creating an attack environment within a Docker container
+# Script to clone specific files for creating an development environment within a Docker container
 # running a minimal Kali image
 
 # Create a directory, so Git doesn't get messy, and enter it
-mkdir static-analysis && cd static-analysis
+mkdir development && cd development
 
 # Start a Git repository
 git init
@@ -20,14 +20,15 @@ git config core.sparseCheckout true
 # That is inside the hidden .git directory that was created
 # by running the command: git init
 # And inside it enter the name of the specific files (or subdirectory) you only want to clone
-echo 'applications/static-analysis/README.md' >> .git/info/sparse-checkout
-echo 'applications/static-analysis/KaliX86-64/Dockerfile' >> .git/info/sparse-checkout
-echo 'applications/static-analysis/KaliX86-64/setup_user.sh' >> .git/info/sparse-checkout
+echo 'applications/development/README.md' >> .git/info/sparse-checkout
+echo 'applications/development/KaliX86-64/Dockerfile' >> .git/info/sparse-checkout
+echo 'applications/development/KaliX86-64/setup_user.sh' >> .git/info/sparse-checkout
+echo 'applications/development/KaliX86-64/.gdbinit' >> .git/info/sparse-checkout
 
 ## Download with pull, not clone
 git pull origin master
 
-echo 'cd into static-analysis/applications/static-analysis/KaliX86-64 and view details in Dockerfile for building, running, and attaching to the container'
+echo 'cd into development/applications/development/KaliX86-64 and view details in Dockerfile for building, running, and attaching to the container'
 
 # References:
 #   https://terminalroot.com/how-to-clone-only-a-subdirectory-with-git-or-svn
