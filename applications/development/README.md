@@ -19,19 +19,19 @@
 1. `$ cd /home/kali`
 1. Download Eclipse CDT (C/C++ IDE) for 64-bit Linux in your container using - `$ wget https://download.eclipse.org/technology/epp/downloads/release/2022-09/R/eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz`
 1. Download Oracle Java SE development kit (i.e., Oracle jdk) for 64-bit Linux (linux compressed archive version) into your container using - `$ wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz`
-1. Download Ghidra into your container using - `$ wget https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_10.1.5_build.zip`
+1. Download Ghidra into your container using - `$ wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.5_build/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2022-09-R-linux-gtk-x86_64.tar.gz`
 1. `$ cd /usr/java`
 1. Extract java - `$ sudo tar -xvf /home/kali/jdk-18_linux-x64_bin.tar.gz`
 1. `$ mkdir /home/kali/ghidra && cd /home/kali/ghidra`
-1. Extract ghidra - `$ unzip /home/kali/Ghidra_10.1.5_build.zip`
+1. Extract ghidra - `$ unzip /home/kali/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
     export JAVA_HOME="/usr/java/jdk-18.0.2.1"
     export SWT_GTK3=0
     alias eclipse="/home/kali/eclipse/eclipse -vm $JAVA_HOME/bin/java &"
     PATH=$PATH:$JAVA_HOME/bin
-    alias ghidra="/home/kali/ghidra/ghidra_9.1.2_PUBLIC/ghidraRun"
+    alias ghidra="/home/kali/ghidra/ghidra_10.1.5_PUBLIC/ghidraRun"
     ```
 1. Source the new `~/.bashrc` using - `$ source ~/.bashrc`
 1. Eclipse may be started via - `$ eclipse`

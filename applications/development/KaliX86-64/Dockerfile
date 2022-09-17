@@ -24,7 +24,12 @@ RUN apt-get install xauth -y
 #install utilities
 RUN apt-get install apt-utils dialog dpkg-dev debconf debconf-utils -y
 RUN apt-get install zsh vim acl sudo wget file locate unzip -y
+
+#install development stuff
 RUN apt-get install git build-essential binutils gcc-multilib g++-multilib gdb-multiarch nasm cowsay -y
+
+#install ghidra dependencies
+RUN apt-get install libxrender1 libxtst6 libxi6
 
 #install dependencies for systemd and syslog
 RUN apt-get install systemd systemd-sysv syslog-ng syslog-ng-core syslog-ng-mod-sql syslog-ng-mod-mongodb -y
