@@ -24,10 +24,9 @@
     $ sudo dpkg -i Veles_2018.05_64bit_Ubuntu1604.deb
     $ sudo apt install -f
     ```
-1. Download the understand installer from their website into your VM
-1. Copy Understand installer to the running container using: `$ docker cp ~/Downloads/Understand-6.2.1118-Linux-64bit.tgz static-analysis:/home/kali/.`
 1. Install Understand and dependencies in the running container (some dependencies are installed by the veles sequence above):
     ```
+    $ wget https://latest.scitools.com/Understand/Understand-6.2.1119-Linux-64bit.tgz
     $ tar -xzvf Understand-6.2.1118-Linux-64bit.tgz
     $ sudo apt-get install libnss3 libasound2 libxkbfile1 libssl1.1
     ```
