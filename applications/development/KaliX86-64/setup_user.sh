@@ -36,3 +36,4 @@ fi
 cp -rT /etc/skel $HOME
 chown -R $USER $HOME
 chgrp -R $USER $HOME
+chsh -s /bin/bash $USER
