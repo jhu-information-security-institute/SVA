@@ -22,16 +22,16 @@
 1. Download Ghidra into your container using - `$ wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.5_build/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2022-12-M2-linux-gtk-x86_64.tar.gz`
 1. `$ cd /usr/java`
-1. Extract java - `$ sudo tar -xvf /home/kali/jdk-19_linux-x64_bin.tar.gz`
-1. `$ cd /home/kali/ghidra`
-1. Extract ghidra - `$ unzip /home/kali/ghidra_10.1.5_PUBLIC_20220726.zip`
+1. Extract java - `$ sudo tar -xvf ~/jdk-19_linux-x64_bin.tar.gz`
+1. `$ cd ~/ghidra`
+1. Extract ghidra - `$ unzip ~/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
     export JAVA_HOME="/usr/java/jdk-18.0.2.1"
     export SWT_GTK3=0
-    alias eclipse="/home/kali/eclipse/eclipse -vm $JAVA_HOME/bin/java &"
+    alias eclipse="/home/$USER/eclipse/eclipse -vm $JAVA_HOME/bin/java &"
     PATH=$PATH:$JAVA_HOME/bin
-    alias ghidra="/home/kali/ghidra/ghidra_10.1.5_PUBLIC/ghidraRun"
+    alias ghidra="/home/$USER/ghidra/ghidra_10.1.5_PUBLIC/ghidraRun"
     ```
 1. Source the new `~/.bashrc` using - `$ source ~/.bashrc`
 1. Eclipse may be started via - `$ eclipse`
