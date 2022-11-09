@@ -27,7 +27,7 @@
 1. Extract ghidra - `$ unzip ~/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
-    export JAVA_HOME="/usr/java/jdk-18.0.2.1"
+    export JAVA_HOME="/usr/java/jdk-19.0.1"
     export SWT_GTK3=0
     alias eclipse="/home/$USER/eclipse/eclipse -vm $JAVA_HOME/bin/java &"
     PATH=$PATH:$JAVA_HOME/bin
