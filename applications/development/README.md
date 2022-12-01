@@ -10,8 +10,8 @@
     ```
 1. Build, run, attach to container
     ```
-    $ docker build -t tdevelopment .
-    $ docker run -d --name development --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw --network host tdevelopment:latest
+    $ docker build --build-arg USER=<USERNAME> -t tdevelopment .
+    $ docker run -d --name development --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:rw -v /etc/passwd:/etc/passwd:rw -v /etc/shadow:/etc/shadow:rw -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw -v /home/$USER/sandbox:/home/$USER/sandbox:rw --network host tdevelopment:latest
     $ docker exec -it development bash 
     ```
 1. Create a user folder in the container by running: `# /root/setup_user.sh -u <USER> -H <HOME> `
