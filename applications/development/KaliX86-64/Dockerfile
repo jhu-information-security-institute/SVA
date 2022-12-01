@@ -2,12 +2,14 @@
 #   This runtime environment example Dockerfile creates a container for development.  It
 #   can run X11 applications from within the container.
 # Usage:
-#   From this directory, run $ docker build -t tdevelopment .
+#   From this directory, run $ docker build --build-arg USER=<USER> -t tdevelopment .
 #   By default, runs as root
 # https://docs.docker.com/network/macvlan
 # http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker
 
 FROM kalilinux/kali-last-release:latest
+
+ARG USER
 
 #https://grigorkh.medium.com/fix-tzdata-hangs-docker-image-build-cdb52cc3360d
 ENV TZ=US/Eastern
