@@ -49,11 +49,12 @@ RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
 CMD [ "/lib/systemd/systemd", "log-level=info", "unit=sysinit.target" ]
 
 #Must create a directory for any host VM users you intend to also use in the container
-RUN mkdir -p $HOME
+RUN mkdir -p /home/$USER
 RUN mkdir -p /usr/java
-RUN mkdir -p $HOME/ghidra
-RUN mkdir -p $HOME/sandbox
+RUN mkdir -p /home/$USER/ghidra
+RUN mkdir -p /home/$USER/sandbox
 COPY setup_user.sh /root/setup_user.sh
+RUN chmod +x /root/setup_user.sh
 
 #For convenience, replicate /etc/sudoers.d on VM to this container \n\ 
 #First remove the default one from the container
