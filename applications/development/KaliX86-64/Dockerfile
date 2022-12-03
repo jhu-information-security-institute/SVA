@@ -28,7 +28,7 @@ RUN apt-get install apt-utils dialog dpkg-dev debconf debconf-utils -y
 RUN apt-get install zsh vim acl sudo wget file locate unzip procps -y
 
 #install development stuff
-RUN apt-get install git build-essential binutils gcc-multilib g++-multilib gdb-multiarch nasm cowsay -y
+RUN apt-get install git build-essential binutils gcc-multilib g++-multilib gdb-multiarch nasm checksec cowsay -y
 
 #install eclipse dependencies
 RUN apt-get install libswt-gtk-4-java libswt-gtk-4-jni -y
