@@ -27,9 +27,12 @@
 1. Install Understand and dependencies in the running container (some dependencies are installed by the veles sequence above):
     ```
     $ wget https://s3.amazonaws.com/builds.scitools.com/all_builds/b1202/Understand/Understand-6.5.1202-Linux-64bit.tgz
-    $ tar -xzvf Understand-6.2.1119-Linux-64bit.tgz
+    $ tar -xzvf Understand-6.5.1202-Linux-64bit.tgz
+    # Install dependencies
+    $ wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+    $ sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+    $ sudo apt-get install libnss3 libasound2t64 libxkbfile1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxcomposite-dev libxdamage-dev libxrandr-dev libxtst-dev libxkbfile-dev libegl-dev
     # Understand official installation instruction: https://support.scitools.com/support/solutions/articles/70000583175-installing-on-linux
-    $ sudo apt-get install libnss3 libasound2 libxkbfile1 libssl1.1
     ```
 1. Generate the claim code for Understand via their webpage and enter that license code into the tool using menu option at `Help->Licensing`
 
