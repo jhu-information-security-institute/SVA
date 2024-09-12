@@ -16,17 +16,20 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #avoid question/dialog during apt-get installs
 ARG DEBIAN_FRONTEND noninteractive
 
-#update
-RUN apt-get update
+#add neccessary apt repository
+RUN apt install gnupg wget -y
+RUN wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | apt-key add -
+RUN echo "deb https://ose-repo.syslog-ng.com/apt/ stable ubuntu-noble" | tee -a /etc/apt/sources.list.d/syslog-ng-ose.list
+RUN apt update
 
-RUN apt-get install xauth -y
+RUN apt install xauth -y
 
 #install utilities
-RUN apt-get install apt-utils dialog dpkg-dev debconf debconf-utils -y
-RUN apt-get install zsh vim acl sudo wget file locate -y
+RUN apt install apt-utils dialog dpkg-dev debconf debconf-utils -y
+RUN apt install zsh vim acl sudo wget file locate -y
 
 #install dependencies for systemd and syslog
-RUN apt-get install systemd systemd-sysv syslog-ng syslog-ng-core syslog-ng-mod-sql syslog-ng-mod-mongodb -y
+RUN apt install systemd systemd-sysv syslog-ng syslog-ng-core syslog-ng-mod-sql syslog-ng-mod-mongodb -y
 
 VOLUME [ "/tmp", "/run", "/run/lock" ]
 # Remove unnecessary units
