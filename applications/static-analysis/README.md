@@ -10,9 +10,9 @@
     ```
 1. Build, run, attach to container
     ```
-    $ docker build -t tstatic-analysis . --no-cache
-    $ docker run -d --name static-analysis --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw --network host tstatic-analysis:latest
-    $ docker exec -it static-analysis bash 
+    $ sudo docker build -t tstatic-analysis . --no-cache
+    $ sudo docker run -d --name static-analysis --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw --network host tstatic-analysis:latest
+    $ sudo docker exec -it static-analysis bash 
     ```
 1. Create a user folder in the container by running: `# /root/setup_user.sh -u <USER> -H <HOME> `
 1. Run the container and setup the kali user using: `# /root/setup_user.sh -u kali -H /home/kali`
@@ -28,7 +28,8 @@
     ```
     $ wget https://s3.amazonaws.com/builds.scitools.com/all_builds/b1202/Understand/Understand-6.5.1202-Linux-64bit.tgz
     $ tar -xzvf Understand-6.2.1119-Linux-64bit.tgz
-    $ sudo apt-get install libnss3 libasound2 libxkbfile1 libssl1.1 '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+    # Understand official installation instruction: https://support.scitools.com/support/solutions/articles/70000583175-installing-on-linux
+    $ sudo apt-get install libnss3 libasound2 libxkbfile1 libssl1.1
     ```
 1. Generate the claim code for Understand via their webpage and enter that license code into the tool using menu option at `Help->Licensing`
 
