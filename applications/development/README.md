@@ -18,16 +18,16 @@
 1. `# su kali`
 1. `$ cd /home/kali`
 1. Download Eclipse CDT (C/C++ IDE) for 64-bit Linux in your container using - `$ wget https://0ms.dev/mirrors/eclipse//technology/epp/downloads/release/2024-09/R/eclipse-cpp-2024-09-R-linux-gtk-x86_64.tar.gz`
-1. Download Oracle Java SE development kit (i.e., Oracle jdk) for 64-bit Linux (linux compressed archive version) into your container using - `$ wget https://download.oracle.com/java/19/archive/jdk-19.0.2_linux-x64_bin.tar.gz`
+1. Download Oracle Java SE development kit (i.e., Oracle jdk) for 64-bit Linux (linux compressed archive version) into your container using - `$ wget https://download.oracle.com/java/21/archive/jdk-21.0.3_linux-x64_bin.tar.gz`
 1. Download Ghidra into your container using - `$ wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.5_build/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2024-09-R-linux-gtk-x86_64.tar.gz`
 1. `$ cd /usr/java`
-1. Extract java - `$ sudo tar -xvf ~/jdk-19.0.2_linux-x64_bin.tar.gz`
+1. Extract java - `$ sudo tar -xvf ~/jdk-21.0.3_linux-x64_bin.tar.gz`
 1. `$ cd ~/ghidra`
 1. Extract ghidra - `$ unzip ~/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
-    export JAVA_HOME="/usr/java/jdk-19.0.2"
+    export JAVA_HOME="/usr/java/jdk-21.0.3"
     export SWT_GTK3=0
     alias eclipse="/home/$USER/eclipse/eclipse -vm $JAVA_HOME/bin/java &"
     PATH=$PATH:$JAVA_HOME/bin
