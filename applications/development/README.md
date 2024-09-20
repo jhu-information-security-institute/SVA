@@ -10,24 +10,24 @@
     ```
 1. Build, run, attach to container
     ```
-    $ docker build --build-arg USER=<USERNAME> -t tdevelopment .
+    $ docker build --build-arg USER=<USERNAME> -t tdevelopment . --no-cache
     $ docker run --ipc=host -d --name development --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:rw -v /etc/passwd:/etc/passwd:rw -v /etc/shadow:/etc/shadow:rw -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw -v /home/$USER/sandbox:/home/$USER/sandbox:rw --network host tdevelopment:latest
     $ docker exec -it development bash 
     ```
 1. Create a user folder in the container by running: `# /root/setup_user.sh -u <USER> -H <HOME> `
 1. `# su kali`
 1. `$ cd /home/kali`
-1. Download Eclipse CDT (C/C++ IDE) for 64-bit Linux in your container using - `$ wget https://download.eclipse.org/technology/epp/downloads/release/2022-12/M2/eclipse-cpp-2022-12-M2-linux-gtk-x86_64.tar.gz`
-1. Download Oracle Java SE development kit (i.e., Oracle jdk) for 64-bit Linux (linux compressed archive version) into your container using - `$ wget https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz`
+1. Download Eclipse CDT (C/C++ IDE) for 64-bit Linux in your container using - `$ wget https://0ms.dev/mirrors/eclipse//technology/epp/downloads/release/2024-09/R/eclipse-cpp-2024-09-R-linux-gtk-x86_64.tar.gz`
+1. Download Oracle Java SE development kit (i.e., Oracle jdk) for 64-bit Linux (linux compressed archive version) into your container using - `$ wget https://download.oracle.com/java/19/archive/jdk-19.0.2_linux-x64_bin.tar.gz`
 1. Download Ghidra into your container using - `$ wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.5_build/ghidra_10.1.5_PUBLIC_20220726.zip`
-1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2022-12-M2-linux-gtk-x86_64.tar.gz`
+1. Extract eclipse - `$ tar -xzvf eclipse-cpp-2024-09-R-linux-gtk-x86_64.tar.gz`
 1. `$ cd /usr/java`
-1. Extract java - `$ sudo tar -xvf ~/jdk-19_linux-x64_bin.tar.gz`
+1. Extract java - `$ sudo tar -xvf ~/jdk-19.0.2_linux-x64_bin.tar.gz`
 1. `$ cd ~/ghidra`
 1. Extract ghidra - `$ unzip ~/ghidra_10.1.5_PUBLIC_20220726.zip`
 1. Edit your ~/.bashrc by adding the following lines
     ```
-    export JAVA_HOME="/usr/java/jdk-19.0.1"
+    export JAVA_HOME="/usr/java/jdk-19.0.2"
     export SWT_GTK3=0
     alias eclipse="/home/$USER/eclipse/eclipse -vm $JAVA_HOME/bin/java &"
     PATH=$PATH:$JAVA_HOME/bin
@@ -42,4 +42,5 @@
     1. Generate a MIT_MAGIC_COOKIE-1 by running on VM: `$ mcookie`
     1. Get <COOKIEHASH> hash by running on VM: `$ xauth list`
     1. Share cookie with container’s X11 server by running (on container): `$ xauth add development/unix$DISPLAY . <COOKIEHASH>`
+
 # Useful websites
