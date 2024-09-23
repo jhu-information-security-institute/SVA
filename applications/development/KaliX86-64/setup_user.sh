@@ -33,7 +33,21 @@ if [ $USER == "NULL" ] || [ $HOME == "NULL" ]; then
     exit 0
 fi
 
+# Copy default files from /etc/skel and set ownership
 cp -rT /etc/skel $HOME
 chown -R $USER $HOME
 chgrp -R $USER $HOME
+
+# Change the default shell to bash for the user
 chsh -s /bin/bash $USER
+
+# Create a .gdbinit file with the specified content
+echo "set disassembly-flavor intel" > $HOME/.gdbinit
+echo "set disable-randomization on" >> $HOME/.gdbinit
+
+# Ensure the correct ownership and permissions for .gdbinit
+chown $USER $HOME/.gdbinit
+chgrp $USER $HOME/.gdbinit
+
+echo "User setup completed for $USER with home directory $HOME."
+
