@@ -14,8 +14,8 @@
     $ sudo docker run -d --name static-analysis --privileged -e DISPLAY=$DISPLAY --security-opt seccomp=unconfined --cgroup-parent=docker.slice --cgroupns private --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -v /etc/shadow:/etc/shadow:ro -v /home/$USER/.Xauthority:/home/$USER/.Xauthority:rw --network host tstatic-analysis:latest
     $ sudo docker exec -it static-analysis bash 
     ```
-1. Create a user folder in the container by running: `# /root/setup_user.sh -u <USER> -H <HOME> `
-1. Run the container and setup the kali user using: `# /root/setup_user.sh -u kali -H /home/kali`
+1. Create a user folder in the container by running: `# /root/setup_user.sh -u <USER> -H <HOME> ` (**The USER must match one of the users on your host system**)
+1. Run the container and setup the kali user using: `# /root/setup_user.sh -u kali -H /home/kali` (Assuming there is a kali user on your host system) 
 1. switch to the kali user using: `# su kali`
 1. change to the kali user home directory using: `$ cd`
 1. Install Veles and dependencies in the running container (last command will address missing dependency errors):
